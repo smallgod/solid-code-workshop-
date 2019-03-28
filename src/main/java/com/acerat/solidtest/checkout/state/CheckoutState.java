@@ -45,4 +45,7 @@ public class CheckoutState {
     public boolean isPaid() {
         return false;
     }
+
+    public void shipmentActivated() {
+    }
 }

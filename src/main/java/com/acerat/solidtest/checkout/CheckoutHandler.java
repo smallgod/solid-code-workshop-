@@ -135,6 +135,7 @@ public class CheckoutHandler {
                 return checkoutState;
             }
         }
+        checkoutState.shipmentActivated();
         return checkoutState;
     }
 }
