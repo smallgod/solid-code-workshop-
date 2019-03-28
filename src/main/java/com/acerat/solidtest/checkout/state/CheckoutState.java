@@ -38,4 +38,11 @@ public class CheckoutState {
 
     public void invoiceSentSuccessfully(UUID invoiceId) {
     }
+
+    public void shipmentActivationFailed(WarehouseSendFailures couldNotActivateShipment) {
+    }
+
+    public boolean isPaid() {
+        return false;
+    }
 }

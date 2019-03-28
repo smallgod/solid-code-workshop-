@@ -1,0 +1,6 @@
+SOLID code refactoring example
+
+This is sample code that won't work when you run it but it's here to demonstrate refactoring into SOLID code.
+
+The juice of this is inside of the com.acerat.solidtest.checkout.CheckoutHandler class. 
+

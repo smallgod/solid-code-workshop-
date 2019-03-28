@@ -13,4 +13,8 @@ public class Warehouse {
     public boolean tryReserveItems(UUID uniqueOrderLineReference, int qty) {
         return false;
     }
+
+    public boolean activateShipment(UUID uniqueOrderLineReference) {
+        return false;
+    }
 }
