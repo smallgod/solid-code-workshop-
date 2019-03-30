@@ -24,7 +24,9 @@ import java.util.List;
 import java.util.Optional;
 
 public class CheckoutHandler {
+
     public CheckoutState checkout(CheckoutState checkoutState) {
+
         Order order = checkoutState.getOrder();
 
         // Get customer
@@ -33,16 +35,18 @@ public class CheckoutHandler {
 
         // Validate shipping information
         ShipmentTracker shipmentTracker = new ShipmentTracker(ApplicationConfiguration.getConnectionString());
+
         if (customer.getShippingAddress() == null) {
             checkoutState.shipmentFailed(ShipmentFailures.MISSING_CUSTOMER_ADDRESS);
             return checkoutState;
         }
+
         Address shipmentAddress = customer.getShippingAddress();
         if (
                 shipmentAddress.getStreet() == null || shipmentAddress.getStreet().isEmpty() ||
-                shipmentAddress.getZipCode() == null || shipmentAddress.getZipCode().isEmpty() ||
-                shipmentAddress.getCity() == null || shipmentAddress.getCity().isEmpty()
-        ) {
+                        shipmentAddress.getZipCode() == null || shipmentAddress.getZipCode().isEmpty() ||
+                        shipmentAddress.getCity() == null || shipmentAddress.getCity().isEmpty()
+                ) {
             checkoutState.shipmentFailed(ShipmentFailures.INVALID_CUSTOMER_ADDRESS);
             return checkoutState;
         }
@@ -110,9 +114,9 @@ public class CheckoutHandler {
                 }
                 if (
                         invoiceAddress.getStreet() == null || invoiceAddress.getStreet().isEmpty() ||
-                        invoiceAddress.getZipCode() == null || invoiceAddress.getZipCode().isEmpty() ||
-                        invoiceAddress.getCity() == null || invoiceAddress.getCity().isEmpty()
-                ) {
+                                invoiceAddress.getZipCode() == null || invoiceAddress.getZipCode().isEmpty() ||
+                                invoiceAddress.getCity() == null || invoiceAddress.getCity().isEmpty()
+                        ) {
                     checkoutState.failedToInvoiceCustomer(InvoiceFailures.INVALID_CUSTOMER_ADDRESS);
                     return checkoutState;
                 }
